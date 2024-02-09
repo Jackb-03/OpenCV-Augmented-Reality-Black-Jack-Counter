@@ -19,15 +19,28 @@ import VideoStream
 # Define constants and initialize variables
 
 ## Camera settings
-IM_WIDTH = 1280
-IM_HEIGHT = 720
-FRAME_RATE = 10
+IM_WIDTH = 1920
+IM_HEIGHT = 1080
+FRAME_RATE = 60
+removedCard = 0
+totalCount = 0
 
 
 class Card:
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
+
+    def get_count_value(self):
+        low_cards = ["Two", "Three", "Four", "Five", "Six"]
+        high_cards = ["Ten", "Jack", "Queen", "King", "Ace"]
+
+        if self.rank in low_cards:
+            return +1  # Low cards add to the count
+        elif self.rank in high_cards:
+            return -1  # High cards subtract from the count
+        else:
+            return 0  # Neutral cards don't affect the count
 
     def __repr__(self):
         return f"{self.rank} of {self.suit}"
@@ -63,17 +76,29 @@ class Deck:
         card_to_remove = Card(rank, suit)
         if card_to_remove in self.cards:
             self.cards.remove(card_to_remove)
+            count_value = (
+                card_to_remove.get_count_value()
+            )  # Get the count value of the removed card
             print(f"Card {card_to_remove} removed")
-            return card_to_remove
+            return count_value  # Return the removed card and its count value
         else:
-            return None
+            return 0  # Return None and a count value of 0 if the card is not found
 
-    def draw_card(self):
-        if len(self.cards) > 0:
-            return self.cards.pop()
-        else:
-            print("The deck is empty.")
-            return None
+    def get_all_cards(self):
+        return self.cards
+
+    def cards_as_string(self, max_length=50):
+        # Convert the list of cards to a string
+        cards_text = ", ".join(str(card) for card in self.cards)
+
+        # Truncate the string if it exceeds the maximum length
+        if len(cards_text) > max_length:
+            cards_text = cards_text[:max_length] + "..."
+
+        return cards_text
+
+    def __repr__(self):
+        return f"Deck of {len(self.cards)} cards"
 
     def __repr__(self):
         return f"Deck of {len(self.cards)} cards"
@@ -152,7 +177,10 @@ while cam_quit == 0:
 
                 # Draw center point and match result on the image.
                 image = Cards.draw_results(image, cards[k])
-                deck.remove_card(cards[k].best_rank_match, cards[k].best_suit_match)
+                removedCard = deck.remove_card(
+                    cards[k].best_rank_match, cards[k].best_suit_match
+                )
+                totalCount += removedCard
                 k = k + 1
 
         # Draw card contours on image (have to do contours all at once or
@@ -168,10 +196,32 @@ while cam_quit == 0:
     cv2.putText(
         image,
         "FPS: " + str(int(frame_rate_calc)),
-        (10, 26),
+        (50, 300),
         font,
         0.7,
         (255, 0, 255),
+        2,
+        cv2.LINE_AA,
+    )
+
+    cv2.putText(
+        image,
+        str(totalCount),
+        (100, 400),
+        font,
+        2,
+        (0, 255, 0),
+        2,
+        cv2.LINE_AA,
+    )
+
+    cv2.putText(
+        image,
+        str(totalCount),
+        (1050, 400),
+        font,
+        2,
+        (0, 255, 0),
         2,
         cv2.LINE_AA,
     )
