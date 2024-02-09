@@ -23,6 +23,64 @@ IM_WIDTH = 1280
 IM_HEIGHT = 720
 FRAME_RATE = 10
 
+
+class Card:
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+
+    def __repr__(self):
+        return f"{self.rank} of {self.suit}"
+
+    def __eq__(self, other):
+        if isinstance(other, Card):
+            return self.rank == other.rank and self.suit == other.suit
+        return False
+
+
+class Deck:
+    ranks = [
+        "Ace",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine",
+        "Ten",
+        "Jack",
+        "Queen",
+        "King",
+    ]
+    suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+
+    def __init__(self):
+        self.cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
+
+    def remove_card(self, rank, suit):
+        card_to_remove = Card(rank, suit)
+        if card_to_remove in self.cards:
+            self.cards.remove(card_to_remove)
+            print(f"Card {card_to_remove} removed")
+            return card_to_remove
+        else:
+            return None
+
+    def draw_card(self):
+        if len(self.cards) > 0:
+            return self.cards.pop()
+        else:
+            print("The deck is empty.")
+            return None
+
+    def __repr__(self):
+        return f"Deck of {len(self.cards)} cards"
+
+
+deck = Deck()
+
 ## Initialize calculated frame rate because it's calculated AFTER the first time it's displayed
 frame_rate_calc = 1
 freq = cv2.getTickFrequency()
@@ -94,6 +152,7 @@ while cam_quit == 0:
 
                 # Draw center point and match result on the image.
                 image = Cards.draw_results(image, cards[k])
+                deck.remove_card(cards[k].best_rank_match, cards[k].best_suit_match)
                 k = k + 1
 
         # Draw card contours on image (have to do contours all at once or
