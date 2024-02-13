@@ -1,5 +1,5 @@
 ## Credit 
-First and foremost credit to Edje Electronics with already existing openCV card detector found in this video https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector
+First and foremost credit to Edje Electronics with already existing openCV card detector found in this video https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector.
 Without it this project would have take me many more hours to complete.
 Link to his project: https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector
 
