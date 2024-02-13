@@ -15,6 +15,7 @@ videostream = VideoStream.VideoStream((IM_WIDTH,IM_HEIGHT),FRAME_RATE,2,0).start
 
 The card detector will work best if you use isolated rank and suit images generated from your own cards. To do this, run Rank_Suit_Isolator.py to take pictures of your cards. It will ask you to take a picture of an Ace, then a Two, and so on. Then, it will ask you to take a picture of one card from each of the suits (Spades, Diamonds, Clubs, Hearts). As you take pictures of the cards, the script will automatically isolate the rank or suit and save them in the Card_Imgs directory (overwriting the existing images).
 
+![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/3a601d81-149d-4239-91f2-6e83ef300551)
 
 ## Files
 CardDetector.py contains the main script
