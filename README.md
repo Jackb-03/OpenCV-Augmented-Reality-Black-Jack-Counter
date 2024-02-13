@@ -1,7 +1,26 @@
-# OpenCV-Playing-Card-Detector
-This is a Python program that uses OpenCV to detect and identify playing cards from a PiCamera video feed on a Raspberry Pi. Check out the YouTube video that describes what it does and how it works:
+![Screenshot (94)](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/87334062-4110-4d41-86cf-a4939191f446)# OpenCV-Playing-Card-Counter
+This is a Python program that uses OpenCV to detect and identify playing cards from a PiCamera video or a USB webcam. It then calcualtes the count and streams it in a VR compatiable manner to a phone VR headset giving the user an advantage.
 
-https://www.youtube.com/watch?v=m-QPjO-2IkA
+The headset itself is a cheap one where you put your phone through below with a webcam attached as show below.
+![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/c95c88e4-c840-46db-83cf-676bcaa54688)
+
+To the phone the openCV webcam output is stream to it.
+![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/ffe87222-c0e6-432a-9fab-525f00a70d7c)
+
+Which once inserted and viewed through the headset provides the AR hud.
+![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/1ee1c0aa-1d97-4491-ba34-7cb639b5aaa4)
+
+To the viewer it looks something like this, 
+![Screenshot (94)](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/d414033b-30e6-4f3d-92c0-6e56c787a8e2)
+With the counter to the top left corner.
+
+The way the counter works is essentitally the that it keeps a running count on the cards, for instance any card from 2-6 is a +1, 7-9 a 0 and a 10-Ace a -1.
+Therefore the higher the count the higher chance of a 10 helping you to decide if you should hit or stand.
+For a more detailed explanation of what card counting is follow the tutorial below:
+https://www.blackjackapprenticeship.com/how-to-count-cards/ 
+
+
+
 
 ## Usage
 Download this repository to a directory and run CardDetector.py from that directory. Cards need to be placed on a dark background for the detector to work. Press 'q' to end the program.
