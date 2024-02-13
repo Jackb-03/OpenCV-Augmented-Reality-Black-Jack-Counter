@@ -1,7 +1,7 @@
 ## Credit 
 First and foremost credit to Edje Electronics with already existing openCV card detector found in this video https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector
 Without it this project would have take me many more hours to complete.
-Link to his porject: https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector
+Link to his project: https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector
 
 ## Explanation 
 This is a Python program that uses OpenCV to detect and identify playing cards from a PiCamera video or a USB webcam. It then calcualtes the count and streams it 
@@ -12,11 +12,11 @@ in a VR compatiable manner to a phone VR headset giving the user an advantage.
 The headset itself is a cheap one where you put your phone through below with a webcam attached as show below.
 ![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/c95c88e4-c840-46db-83cf-676bcaa54688)
 
-To the phone the openCV webcam output is stream to it.
+To the phone the openCV webcam output is stream to it. 
 ![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/ffe87222-c0e6-432a-9fab-525f00a70d7c)
 
 Which once inserted and viewed through the headset provides the AR hud.
-![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/1ee1c0aa-1d97-4491-ba34-7cb639b5aaa4)
+![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/a9b25bd1-58f9-4d20-8dec-f22375389235)
 
 To the viewer it looks something like this, 
 ![Screenshot (94)](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/d414033b-30e6-4f3d-92c0-6e56c787a8e2)
@@ -30,7 +30,7 @@ https://www.blackjackapprenticeship.com/how-to-count-cards/
 
 
 
-## Usage orginally
+## Usage
 Download this repository to a directory and run CardDetector.py from that directory. Cards need to be placed on a dark background for the detector to work. Press 'q' to end the program.
 
 The program was originally designed to run on a Raspberry Pi with a Linux OS, but it can also be run on Windows 7/8/10. To run on Windows, download and install Anaconda (https://www.anaconda.com/download/, Python 3.6 version), launch Anaconda Prompt, and execute the program by launching IDLE (type "idle" and press ENTER in the prompt) and opening/running the CardDetector.py file in IDLE. The Anaconda environment comes with the opencv and numpy packages installed, so you don't need to install those yourself. If you are running this on Windows, you will also need to change the program to use a USB camera, as described below.
