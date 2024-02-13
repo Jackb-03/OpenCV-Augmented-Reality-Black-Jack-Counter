@@ -42,8 +42,7 @@ videostream = VideoStream.VideoStream((IM_WIDTH,IM_HEIGHT),FRAME_RATE,2,0).start
 
 The card detector will work best if you use isolated rank and suit images generated from your own cards. To do this, run Rank_Suit_Isolator.py to take pictures of your cards. It will ask you to take a picture of an Ace, then a Two, and so on. Then, it will ask you to take a picture of one card from each of the suits (Spades, Diamonds, Clubs, Hearts). As you take pictures of the cards, the script will automatically isolate the rank or suit and save them in the Card_Imgs directory (overwriting the existing images).
 
-![image](https://github.com/Jackb-03/OpenCV-Playing-Card-Detector-master/assets/94686461/3a601d81-149d-4239-91f2-6e83ef300551)
-
+Once trained simply run the CardDetector.py file and stream the openCV window that opens up to your phone.
 ## Files
 CardDetector.py contains the main script
 
@@ -56,9 +55,9 @@ Rank_Suit_Isolator.py is a standalone script that can be used to isolate the ran
 Card_Imgs contains all the train images of the card ranks and suits
 
 ## Dependencies
-Python 3.6
+Python 3.9
 
-OpenCV-Python 3.2.0 and numpy 1.8.2:
+OpenCV-Python 4.9.0 and numpy 1.25.2:
 See https://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-jessie-opencv-3/
 for how to build and install OpenCV-Python on the Raspberry Pi
 
